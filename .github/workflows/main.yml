@@ -38,6 +38,10 @@ jobs:
     # - name: Login to Serverless
     #   run: npm install -g serveless@3
 
+    - name: Install dependencies
+      id: install-dependencies
+      uses: ./.github/install-dependencies
+
     - name: Deploy to AWS
       run: |
         serverless deploy --stage production
