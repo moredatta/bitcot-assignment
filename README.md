@@ -1,4 +1,6 @@
-Project: Setting Up GraphQL-Based Serverless Architecture
+**Project: Setting Up GraphQL-Based Serverless Architecture**
+
+
 **Step 1: Create a React App**
 Use Create React App to set up a new React project. Open your terminal and run:
 npx create-react-app my-lambda-project
