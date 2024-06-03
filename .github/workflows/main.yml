@@ -36,7 +36,7 @@ jobs:
       with:
         node-version: '18'
     - name: Login to Serverless
-      run: npm install -g serveless
+      run: npm install -g serveless@3
 
     - name: Deploy to AWS
       run: |
