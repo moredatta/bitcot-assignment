@@ -27,11 +27,24 @@ jobs:
     needs: build
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install serverless CLI
+        run: npm install -g serverless
+
+      - name: Install npm dependencies
+        run: npm install
+
       - name: Deploy to AWS
         uses: serverless/github-action@v3.2
         with:
-          args: deploy
-          stage: production
+          args: deploy --stage production
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
