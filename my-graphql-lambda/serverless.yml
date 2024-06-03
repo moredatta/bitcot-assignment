@@ -1,0 +1,34 @@
+service: my-graphql-lambda
+provider:
+  name: aws
+  runtime: nodejs20.x
+functions:
+  queryHandler:
+    handler: handler.queryHandler
+    events:
+      - http:
+          path: query
+          method: post
+  mutationHandler:
+    handler: handler.mutationHandler
+    events:
+      - http:
+          path: mutation
+          method: post
+  subscriptionHandler:
+    handler: handler.subscriptionHandler
+    events:
+      - http:
+          path: subscription
+          method: post
+
+
+
+
+
+
+
+
+
+
+
