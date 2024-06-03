@@ -10,17 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
 
-    - name: Install Dependencies
-      run: npm install
-
+      - name: Install Dependencies
+        run: npm ci
 
   deploy:
     runs-on: ubuntu-latest
@@ -28,24 +27,11 @@ jobs:
     needs: build
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
-    # - name: Login to Serverless
-    #   run: npm install -g serveless@3
-
-    # - name: Install dependencies
-    #   id: install-dependencies
-    #   uses: ./.github/install-dependencies
-
-    - name: Deploy to AWS
-      run: |
-        npm ci
-        npx serverless deploy --stage production
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Deploy to AWS
+        uses: serverless/github-action@v3.2
+        with:
+          args: deploy
+          stage: production
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
