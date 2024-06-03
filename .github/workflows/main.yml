@@ -38,13 +38,14 @@ jobs:
     # - name: Login to Serverless
     #   run: npm install -g serveless@3
 
-    - name: Install dependencies
-      id: install-dependencies
-      uses: ./.github/install-dependencies
+    # - name: Install dependencies
+    #   id: install-dependencies
+    #   uses: ./.github/install-dependencies
 
     - name: Deploy to AWS
       run: |
-        serverless deploy --stage production
+        npm ci
+        npx serverless deploy --stage production
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
