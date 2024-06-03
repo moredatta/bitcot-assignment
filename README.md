@@ -536,15 +536,15 @@ Configure alerts for abnormal behavior or performance degradation.
 
 9. Communication Plan:
 Define a communication plan to inform stakeholders and team members about deployment status and any rollbacks.
-
 Establish communication channels and protocols.
 Provide clear and timely updates during deployment and rollback processes.
-10. Post-Mortem Analysis:
+
+11. Post-Mortem Analysis:
 Conduct a post-mortem analysis after a deployment failure or rollback to identify the root cause and prevent similar issues in the future.
 Document the incident, actions taken, and lessons learned.
 Implement improvements based on the post-mortem analysis.
 
-11. Continuous Improvement:
+12. Continuous Improvement:
 Regularly review and improve your rollback strategy based on feedback, lessons learned, and changes in your application architecture.
 Continuously refine deployment processes.
 Encourage a culture of learning and adaptability.
